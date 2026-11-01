@@ -1,13 +1,23 @@
 # pi-collapse-work
 
-Folds everything the agent does between your prompt and its answer into one line, so the transcript reads as prompt, work summary, answer:
+
+
+https://github.com/user-attachments/assets/4e2eeec6-17b9-4373-a49f-72d6a7a51d5c
+
+
+
+Most of the models now write scripts which are unreadable to humans. To reduce cognitive load I decided to hide it all. 
+
+What this extension does - it simply folds/hides/collapses everything the agent does between your prompt and its answer - into one line. Showing how many tools were called and how long it took.
+
+So it will look something like:
 
 ```
- first question please
+ PROMPT
 
- Working... 3 tool calls, 3.2s
+ Working... 3 tool calls, 3.2s (all tool calls folded/hidden but still availble if needed via ctrl/cmd+o)
 
- All done. The config now loads from ~/.pi/agent.
+ OUTPUT
 ```
 
 While the agent works, the line ticks live: `Working... 1 tool call, 2.5s`. Nothing the agent streams on the way, such as interim text, thinking or tool rows, is shown until it finishes. Then the line freezes and the final answer appears under it.
@@ -20,14 +30,6 @@ Requires pi 0.84.2 or newer.
 
 ```bash
 pi install git:github.com/xRyul/pi-collapse-work
-```
-
-Then restart pi, or run `/reload` in an open session.
-
-To try it without installing:
-
-```bash
-pi -e git:github.com/xRyul/pi-collapse-work
 ```
 
 ## Ctrl+O
@@ -62,19 +64,5 @@ Pi has no API for hiding transcript entries, so the extension:
 3. listens to raw terminal input for Ctrl+O while the main editor has focus, because extensions cannot register that shortcut, and switches pi's tool expansion with `ctx.ui.setToolsExpanded()`.
 
 Times for past exchanges come from the session file, so they survive `/reload` and resuming a session. If pi changes its interactive layout and the chat container can't be found, the extension shows a warning once and leaves the transcript alone.
-
-## Development
-
-```bash
-pi -e ./index.ts
-```
-
-Tests need `@earendil-works/pi-coding-agent` and `@earendil-works/pi-tui` resolvable from this folder (symlink them into `node_modules/` or install them):
-
-```bash
-npm test
-```
-
-## License
 
 MIT

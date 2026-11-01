@@ -14,9 +14,25 @@ While the agent works, the line ticks live: `Working... 1 tool call, 2.5s`. Noth
 
 The time runs from when you sent the prompt to the end of the final answer. The count covers top-level tool calls, so a codemode or batch call counts once.
 
+## Install
+
+Requires pi 0.84.2 or newer.
+
+```bash
+pi install git:github.com/xRyul/pi-collapse-work
+```
+
+Then restart pi, or run `/reload` in an open session.
+
+To try it without installing:
+
+```bash
+pi -e git:github.com/xRyul/pi-collapse-work
+```
+
 ## Ctrl+O
 
-Ctrl+O (or whatever `app.tools.expand` is bound to) cycles three views:
+This extension takes over Ctrl+O (or whatever `app.tools.expand` is bound to). Instead of pi's two-way collapse/expand toggle, it cycles three views:
 
 | Press | View |
 | --- | --- |
@@ -26,6 +42,8 @@ Ctrl+O (or whatever `app.tools.expand` is bound to) cycles three views:
 | 3rd | Folded again |
 
 The status line under the transcript names the view you switched to. In dialogs, selectors and `/tree`, Ctrl+O keeps its usual meaning.
+
+It works alongside [pi-collapse-tools](https://github.com/xRyul/pi-collapse-tools): the "tool calls" view then shows its compact tool rows, and the "tool output" view expands them.
 
 ## What stays visible when folded
 
@@ -56,3 +74,7 @@ Tests need `@earendil-works/pi-coding-agent` and `@earendil-works/pi-tui` resolv
 ```bash
 npm test
 ```
+
+## License
+
+MIT

@@ -1,9 +1,23 @@
 {
   "name": "pi-collapse-work",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
-  "description": "Folds everything the agent does between two prompts into one Working line with a tool count and timer.",
+  "description": "Pi extension that folds the agent's work between your prompt and its answer into one live Working line with a tool count and timer.",
+  "license": "MIT",
+  "author": "xryul",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xRyul/pi-collapse-work.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xRyul/pi-collapse-work/issues"
+  },
+  "homepage": "https://github.com/xRyul/pi-collapse-work#readme",
+  "keywords": [
+    "pi-package",
+    "pi",
+    "pi-extension"
+  ],
   "engines": {
     "node": ">=22.19.0"
   },
@@ -16,7 +30,14 @@
     "test": "node --test *.test.mjs"
   },
   "peerDependencies": {
-    "@earendil-works/pi-coding-agent": "*",
-    "@earendil-works/pi-tui": "*"
-  }
+    "@earendil-works/pi-coding-agent": ">=0.84.2",
+    "@earendil-works/pi-tui": ">=0.84.2"
+  },
+  "files": [
+    "index.ts",
+    "fold.ts",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ]
 }

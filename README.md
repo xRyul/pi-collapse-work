@@ -1,10 +1,6 @@
 # pi-collapse-work
 
-
-
-https://github.com/user-attachments/assets/4e2eeec6-17b9-4373-a49f-72d6a7a51d5c
-
-
+![Before: pi shows every thinking step, command and output between the prompt and the answer, including a failed command. After: pi-collapse-work replaces all of it with one line, "Working... 3 tool calls, 10.5s", followed by the answer.](https://raw.githubusercontent.com/xRyul/pi-collapse-work/main/assets/before-after.png)
 
 Most of the models now write scripts which are unreadable to humans. To reduce cognitive load I decided to hide it all. 
 
@@ -20,13 +16,13 @@ So it will look something like:
  OUTPUT
 ```
 
-Here it is on a real prompt. On the left is pi's default transcript; on the right is the same prompt with this extension:
-
-![Before and after. Left: pi shows every thinking step, command and output between the prompt and the answer, including a failed command. Right: pi-collapse-work replaces all of it with one line, "Working... 3 tool calls, 10.5s", followed by the answer.](https://raw.githubusercontent.com/xRyul/pi-collapse-work/main/assets/how-it-works.png)
-
 While the agent works, the line ticks live: `Working... 1 tool call, 2.5s`. Nothing the agent streams on the way, such as interim text, thinking or tool rows, is shown until it finishes. Then the line freezes and the final answer appears under it.
 
 The time runs from when you sent the prompt to the end of the final answer. The count covers top-level tool calls, so a codemode or batch call counts once.
+
+## Demo
+
+https://github.com/user-attachments/assets/4e2eeec6-17b9-4373-a49f-72d6a7a51d5c
 
 ## Install
 
